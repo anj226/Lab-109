@@ -1,0 +1,65 @@
+#!/bin/bash
+time=$(git rev-list --count $(git rev-parse HEAD))
+
+win=0
+birthday=0
+
+[[ $(grep 'CKEFGISC{7he_&peci@1_F!1e_With_M@g!c_P0wer}' ./FILE 2> /dev/null) ]] && win=1
+[[ $(grep -i "JUL.*01:.*Cody.*Birthday" David_schedule 2> /dev/null) ]] && birthday=1
+
+Say(){
+    echo $1
+    sleep 1s
+}
+
+#08:00
+if [[ $time == 1 ]];then
+    Say "David: Hi! I'm David. I am the leader of Lab-109."
+    Say "David: We are now making a big project in which we try to develop a new kind of energy."
+    Say "David: We believe it can bring us human beings a better life."
+    Say "David: ...... Have we met before? I think you look a little familiar."
+    Say "David: Nevermind. If you have any question, you can ask our assistant AI - the machine dog, Percy."
+    Say "David: Excuse me. I have to go. It's time to continue my experiment."
+
+#12:00
+elif [[ $time == 2 ]];then
+	if [[ $birthday == 1 ]];then
+        Say "David: Finally, it's lunch time."
+        Say "David: Hmm...... Today is Cody's birthday!"
+        Say "Dacid: Cody, let's have your favorite moss burger for lunch."
+        Say "David: Oh, that's OK. I will get them after we come back."
+        Say "David: Happy birthday my little boy! (*hug)"
+        $(echo "CKEFGISC{Happy_Birthday_My_Little_Cody_<3}" >> ./David_schedule)
+    else
+        Say "David: Finally, it's lunch time."
+        Say "David: Cody, let's have mcdonald for lunch."
+        Say "David: Oh, that's OK. I will collect them after we come back."
+    fi
+#16:00
+elif [[ $time == 3 ]];then
+    Say "David: This is so weird. Why is it growing so fast......"
+    Say "David: Hmm, I need to put the \"FILE\" in immediately."
+    Say "David: Wait, where is my \"FILE\"!"
+    Say "David: Alice, did you see my \"FILE\"?"
+    Say "David: Wait wut! You say you dumped it with the trash?"
+    Say "David: Oh, god. Nothing can stop it now."
+    Say "David: We could have had a chance if we had the \"FILE\"......"
+    
+    if [[ $win == 1 ]];then
+    	Say "David: Hey here is the "FILE"!"
+    	Say "David: Thank god...... But why is it here."
+    	Say "David: Don't care. I　can fix our device now."
+        $(echo ":D" >> ./FILE)
+    fi
+#20:00
+else
+    if [[ $win == 0 ]];then
+        Say "David: The device is out of control...... We need the special \"FILE\", but I lost it......"
+        Say "David: The device exploded..... Cody...... "
+        Say "David: Help us please...... Go find our assistant AI Percy! He can take you to the past."
+        Say "David is dying."
+    else
+        Say "David: It's you! Our project is done! We accomplished mission impossible!!!"
+        Say "David: Oh, don't cry bro. Yeah, I know. You are very glad to hear this. Let's party!"
+    fi
+fi

@@ -1,0 +1,19 @@
+#!/bin/bash
+time=$(git rev-list --count $(git rev-parse HEAD))
+
+#08:00
+if [[ $time == 1 ]];then
+    echo "It's 08:00."
+
+#12:00
+elif [[ $time == 2 ]];then
+    echo "It's 12:00."
+
+#16:00
+elif [[ $time == 3 ]];then
+    echo "It's 16:00."
+
+#20:00
+else
+    echo "It's 20:00."
+fi

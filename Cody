@@ -1,0 +1,56 @@
+#!/bin/bash
+time=$(git rev-list --count $(git rev-parse HEAD))
+win=0
+mail=0
+cody=0
+birthday=0
+
+
+[[ $(grep 'CKEFGISC{7he_&peci@1_F!1e_With_M@g!c_P0wer}' ./FILE 2> /dev/null) ]] && win=1
+[[ $(grep -i "JUL.*01:.*Cody.*Birthday" David_schedule 2> /dev/null) ]] && birthday=1
+[[ $(grep "CKEFGISC{Happy_Birthday_My_Little_Cody_<3}" David_schedule 2> /dev/null) ]] && cody=1
+
+Say(){
+    echo $1
+    sleep 1s
+}
+
+#08:00
+if [[ $time == 1 ]];then
+    Say "Cody: Hi, I am Cody. David's younger brother."
+    Say "Cody: Yes, my brother is the leader of this lab. He is really a genius."
+    Say "Cody: He is...... handsome? Yes, I think so."
+    Say "Cody: He is very busy recently. He doesn't even remember today is my birthday......"
+
+#12:00
+elif [[ $time == 2 ]];then
+    if [[ $birthday == 1 ]];then
+        Say "Cody: Okay, I'm coming."
+        Say "Cody: Moss Burger!! Wait, aren't you going to pick up your document files from the floor?"
+        Say "Cody: I am not little anymore! I am 19! (*blush)"
+    else
+        Say "Cody: Okay, I'm coming."
+        Say "Cody: Mcdonald again......Hey, aren't you going to pick up your document files from the floor?"
+    fi
+
+
+#16:00
+elif [[ $time == 3 ]];then
+    if [[ $cody == 1 ]]; then
+        Say "Cody: I am not little anymore! I am 19! (*blush)"
+    else 
+        Say "Cody: Why is my brother always so busy."
+        Say "Cody: I wish there’s something I can do to lighten his load."  
+    fi
+#20:00
+else
+    if [[ $win == 0 ]];then
+        Say "Cody is dead."
+    else 
+        if [[ $cody == 1 ]]; then
+            Say "Cody: Party! I love parties!"
+        else 
+            Say "Cody: My brother still doesn't remember my birthday......"  
+        fi
+    fi
+fi
